@@ -29,6 +29,7 @@
 
 namespace OC;
 
+use OC\Repair\Apps;
 use OC\Repair\AssetCache;
 use OC\Repair\AvatarPermissions;
 use OC\Repair\CleanTags;
@@ -182,6 +183,7 @@ class Repair implements IOutput{
 			new Collation(\OC::$server->getConfig(), $connection),
 			new SqliteAutoincrement($connection),
 			new SearchLuceneTables(),
+			new Apps(\OC::$server->getAppManager(), \OC::$server->getEventDispatcher()),
 		];
 
 		//There is no need to delete all previews on every single update
