@@ -31,7 +31,7 @@ OCP\User::checkLoggedIn();
 \OC::$server->getSession()->close();
 
 $files = isset($_GET['files']) ? $_GET['files'] : '';
-$dir = isset($_GET['dir']) ? $_GET['dir'] : '';
+$dir = isset($_GET['dir']) ? htmlspecialchars($_GET['dir'], ENT_QUOTES): '';
 
 $files_list = json_decode($files);
 // in case we get only a single file
