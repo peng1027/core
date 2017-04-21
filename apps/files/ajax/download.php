@@ -36,7 +36,7 @@ $dir = isset($_GET['dir']) ? htmlspecialchars($_GET['dir'], ENT_QUOTES): '';
 $files_list = json_decode($files);
 // in case we get only a single file
 if (!is_array($files_list)) {
-	$files_list = array(htmlspecialchars($files, ENT_QUOTES);
+	$files_list = array(htmlspecialchars($files, ENT_QUOTES));
 } else {
 	$files_list = array_map(function($file) {
 		return htmlspecialchars($file, ENT_QUOTES);
